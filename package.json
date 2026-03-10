@@ -1,15 +1,40 @@
 {
-  "name": "workflow-repo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "tailwindcss": "^3.4.12"
-  }
+    "name": "workflow-repo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+        "prepare": "husky",
+        "lint": "eslint .",
+        "format": "prettier . --write",
+        "test": "vitest",
+        "test:unit": "vitest run",
+        "test:e2e": "playwright test"
+    },
+    "lint-staged": {
+        "*.html": [
+            "prettier --write"
+        ],
+        "*.js": [
+            "prettier --write",
+            "eslint"
+        ]
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@playwright/test": "^1.58.2",
+        "eslint": "^10.0.3",
+        "globals": "^17.4.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.3.3",
+        "playwright": "^1.58.2",
+        "prettier": "^3.8.1",
+        "tailwindcss": "^3.4.12",
+        "vitest": "^4.0.18"
+    }
 }
